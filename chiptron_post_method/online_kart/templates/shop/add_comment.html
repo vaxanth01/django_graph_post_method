@@ -1,0 +1,35 @@
+{% include 'shop/regi.html' %}
+
+{% block content %}
+<div class="card" id="main">
+    <h1 style="font-size: 40px; margin-left: 30px;" class="p-2">
+        Add Comment
+     </h1>
+    
+     <div class="container m-1">
+         <form action="" method="post">
+    
+             {% csrf_token %}
+             {{ form.as_p }}
+             <input type="submit" name="Submit">
+    
+         </form>
+     </div>
+</div>
+
+<footer id="footer" class="footer">
+    <div class="copyright">
+      &copy; Copyright <strong><span>CHIPTRON</span></strong>. All Rights Reserved
+    </div>
+    <div class="credits">
+      <!-- All the links in the footer should remain intact. -->
+      <!-- You can delete the links only if you purchased the pro version. -->
+      <!-- Licensing information: https://bootstrapmade.com/license/ -->
+      <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/-CHIPTRON-bootstrap-CHIPTRON-html-template/ -->
+      Designed by <a href="#">MMV SYSTEM</a>
+    </div>
+  </footer><!-- End Footer -->
+
+{% endblock %}
+
+

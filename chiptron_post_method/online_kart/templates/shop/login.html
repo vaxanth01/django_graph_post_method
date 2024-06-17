@@ -1,0 +1,46 @@
+{% include 'shop/regi.html' %}
+{% block content %}
+  <div class="card" id="main">
+    <div class="row">
+      <div class="col-12">
+        <h4 class="mb-3"> User Login</h4>
+        <hr style="border-color:#b8bfc2;">
+      </div>
+    </div>
+
+  
+
+
+
+    <section class="py-4" style="margin-left: 400px;">
+      <div class="container">  {% include 'shop/inc/message.html' %}
+        <div class="row">
+          <div class="col-4">
+            <form method="post" action="">
+              {% csrf_token %}
+              <div class="mb-4">
+                <label for="" class="form-label">User Name</label>
+                <input type="text" name="username" id="username" class="form-control" placeholder="Enter User Name">
+              </div>
+              <div class="mb-4">
+                <label for="" class="form-label">Password</label>
+                <input type="password" name="password" id="password" class="form-control" placeholder="Enter Password">
+              </div>
+              <button type="submit" class="btn btn-primary">Login</button><br><br>
+              <p class="my-2"><a href="{% url 'reg' %}">Register Now</a> </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <footer id="footer" class="footer">
+    <div class="copyright">
+      &copy; Copyright <strong><span>CHIPTRON</span></strong>. All Rights Reserved
+    </div>
+    <div class="credits">
+      Designed by <a href="">MMV SYSTEM</a>
+    </div>
+  </footer>
+
+{% endblock content %}

@@ -1,0 +1,79 @@
+{% include 'shop/regi.html' %}
+{% block content %}
+<div class="card" id="main">
+  <div class="row justify-content" >
+      <div class="col-md-5">
+        <a href="{% url 'showProducts' %}">
+            <h5 class="fa-solid fa-chevron-left" style="position:fixed"></h5></a><br>
+          <div class="card m-1 p-2" style="position:fixed">
+            <h3 style="text-align: center; color: rgb(81, 103, 96);">{{ eachProduct.category.name }}</h3>
+              <img src="{{ eachProduct.image.url }}" class="card-img-top" alt="...">
+              <div class="card-body">
+                
+           
+
+                <div class="btyn" style="text-align: center; ">
+                    <a style="color: black;" href="{% url 'deleteProduct' eachProduct.id %}"><i style="color: black;" class="fa-solid fa-trash-can "></i> Delete </a>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                    <a style="color: black;" href="{% url 'updateProduct' eachProduct.id %}" ><i style="color: black;" class="fa-solid fa-pen-to-square"></i> Edit </a>
+                    <hr>
+                </div>
+
+                <div class="btj" style="text-align: center;"><button type="button" class="btn btn-success">Add To Cart</button>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                  <button type="button" class="btn btn-success">Buy Now</button>
+                </div>
+              </div>
+          </div>
+      </div>
+      <div class="col-md-7">
+        <br>
+
+<h2 style="font-family:sans-serif" > Features</h2><br>
+        <h5>HP Laptop 15s, 11th Gen Intel Core i3-1115G4, 15.6-inch (39.6 cm), FHD, 8GB DDR4, 512GB SSD, Intel UHD Graphics, Thin & Light, Dual Speakers (Win 11, MSO 2021, Silver, 1.69 kg), fq2717TU</h5>
+
+<br>
+
+<p>【2-core 11th Gen Intel Core i3-1115G4】4 threads and 6MB L3 cache deliver fast processing speeds. The Intel UHD graphics help you dive into crisp, stunning visuals. <br>
+  【Upgraded memory and storage】8GB DDR4 RAM and 512GB PCIe NVMe M.2 SSD allow you to undertake improved multitasking with high-bandwidth memory and ample storage. Now, browse or work as you please.<br>
+  【Micro-edge display】The 15.6-inch, FHD, 250-nit, anti-glare, and micro-edge display immerses you in your projects, helping you explore intricate details on a large screen.<br>
+  【Effortless connectivity】Wi-Fi 5 (2x2) and Bluetooth 5.0 make you unstoppable with a dependable connection. Stay plugged in with 1 x USB Type-C, 2 x USB Type-A, and 1 x HDMI 1.4b ports.<br>
+  【Long battery life】With HP Fast Charge, power up your device up to 50% in 45 mins. Once done, get ready to go where work takes you backed up with a long-lasting 41Wh battery life.<br>
+  【Business conferencing】HP True Vision 720p HD camera with integrated dual array mics and dual speakers enables you to put your point across with utmost clarity in high resolution.<br>
+  【Why HP】Experience the unparalleled advantages of choosing HP, the most preferred and trusted PC brand by Indians, which empowers you with cutting-edge technology and steadfast dependability.<br>
+  【Pre-loaded Win 11 and MS Office】Comes with Win 11 and MS Office 2021. To activate your MS Office, sign in or sign up, and follow the Office Activation Wizard.<br>
+  【Sustainably made】Make an environmentally conscious choice with a thoughtfully designed laptop that contains recycled plastics and is EPEAT Silver registered and ENERGY STAR certified.<br>
+  【Reliable design】A sleek yet sturdy laptop that delivers rock-solid performance all day long with power-packed features, optimized heat management, and 1-year on-site standard warranty.<br></p>
+
+         <div style="margin: 5px; padding:2px;">
+            Add Comments ({{ num_comments }})
+            <br>
+            <hr>
+            {% if not eachProduct.comments.all %}
+                <p>Not comments added yet...</p>
+               <p><a class="btn btn-primary" href="{% url 'add-comment' eachProduct.id %}">  Add Comment </a></p>
+            {% else %}
+                {% for comment in eachProduct.comments.all %}
+                    <h5><strong>{{ comment.commenter_name }}</strong></h5>
+                    <p>{{ comment.comment_body }}</p>
+                    <p><small>{{ comment.date_added }}</small></p>
+                    {% if request.user.username == comment.commenter_name %}
+                        <p><a class="btn btn-primary" href="{% url 'add-comment' eachProduct.id %}">  Add Comment </a></p>
+                        <p><a class="btn btn-danger" href="{% url 'delete-comment' eachProduct.id %}">  Delete Comment </a></p>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+         </div>
+      </div>
+  </div>
+</div>
+<footer id="footer" class="footer">
+    <div class="copyright">
+      &copy; Copyright <strong><span>CHIPTRON</span></strong>. All Rights Reserved
+    </div>
+    <div class="credits">
+      Designed by <a href="#">MMV SYSTEM</a>
+    </div>
+  </footer> -->
+{% endblock %} 
+
+
+

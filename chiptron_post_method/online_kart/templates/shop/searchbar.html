@@ -1,0 +1,32 @@
+{% include 'shop/regi.html' %}
+{% block content %}
+<div class="card" id="main">
+    <div class="row justify-content-center m-3">
+        {% if products %}
+        {% for product in products %}
+        
+            <div class="card" style="width: 15rem; background-color: rgb(216, 237, 217); margin: 10px;">
+              <a href="{% url 'product' product.pk  %}">
+             <div class="halt">
+              <p style="text-align: center; font-size: 20px; ; border-radius: 5px; background-color: cadetblue; color: aliceblue;">{{ product.category.name }}</p>
+              <img src="{{ product.image.url }}" class="card-img-top" alt="..."  style="width: 120px; height: 130px; align-items: center;justify-content: center;" >
+              <div class="card-body">
+                <p class="card-title">{{ product.name }}</p>
+                <h6 style="color: rgb(16, 52, 107)" class="card-subtitle mt-1">${{ product.price }}</h6>
+                <hr>
+                <p class="card-text"></p>
+                <div >
+                </a>
+                </div>
+              </div></div>
+            </div>
+        {% endfor %}
+        {% else %}
+             <p style="text-align: center;">No Products avilable</p>
+        {% endif %}
+        
+    </div>
+
+    
+
+{% endblock %}
